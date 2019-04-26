@@ -32,7 +32,7 @@
     </div>
     <ul class="nav nav-tabs">
         <li class="active"><a href="/welcome">Home</a></li>
-        <li class="active"><a href="/purchase">Home</a></li>
+      
       
     </ul>
     <br>
