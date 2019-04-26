@@ -61,8 +61,8 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">product id </label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="id"
-								value="${product.id}" />
+							<input type="text" class="form-control" name="productCode"
+								value="${product.productCode}" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -105,6 +105,7 @@
 						<thead>
 							<tr>
 								<th>Id</th>
+								<th>Product Code</th>
 								<th>name</th>
 								<th>photo</th>
 								<th>price</th>
@@ -116,6 +117,7 @@
 							<c:forEach var="user" items="${products }">
 								<tr>
 									<td>${product.id}</td>
+									<td>${product.productCode}</td>
 									<td>${product.name}</td>
 									<td>${product.photo}</td>
 									<td>${product.price}</td>
@@ -140,21 +142,27 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">Product name</label>
 						<div class="col-md-7">
+							<input type="text" class="form-control" name="productCode"
+								value="${product.productCode }" />
+						</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Product name</label>
+						<div class="col-md-7">
 							<input type="text" class="form-control" name="username"
-								value="${product.name }" />
+								value="${product.username }" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">product name</label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="firstname"
+							<input type="text" class="form-control" name="name"
 								value="${product.name }" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">photo</label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="lastname"
+							<input type="text" class="form-control" name="photo"
 								value="${product.photo }" />
 						</div>
 					</div>

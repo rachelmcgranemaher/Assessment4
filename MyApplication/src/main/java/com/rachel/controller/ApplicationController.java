@@ -86,8 +86,8 @@ public class ApplicationController {
 	
 	
     @RequestMapping("/save-product")
-    public String save(@RequestParam String id, @RequestParam String name, @RequestParam String photo, @RequestParam double price, HttpServletRequest request) {
-        Product product = new Product(id, name, photo, price);
+    public String save(@RequestParam String productCode, @RequestParam String name, @RequestParam String photo, @RequestParam double price, HttpServletRequest request) {
+        Product product = new Product(productCode, name, photo, price);
         System.out.println("SAVE PRODUCT: " + product.toString());
         productService.save(product);
         request.setAttribute("mode", "MODE_ALLPRODUCTS");
@@ -116,19 +116,19 @@ public class ApplicationController {
 	
 
 	
-	@RequestMapping("/login-user")
+    @RequestMapping("/login-user")
 	public String loginUser(@ModelAttribute User user,HttpServletRequest request) {
-		if(userService.findByUsernameAndPassword(user.getUsername(), user.getPassword())!=null) {
-			return "homepage";
-		}
-		else {
+		User loggedInUser = userService.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+		if(null == user) {
 			request.setAttribute("error","Invalid Username or Password");
 			request.setAttribute("mode", "MODE_LOGIN");
 			return "welcomepage";
-			
 		}
+		request.getSession().setAttribute("user", loggedInUser);
+		return "homepage";
+	}
+	
 		
 	}
 	
-	
-}
+

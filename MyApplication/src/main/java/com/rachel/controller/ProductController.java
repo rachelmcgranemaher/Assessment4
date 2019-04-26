@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rachel.entities.Product;
-import com.rachel.model.ProductModel;
+
 import com.rachel.services.ProductService;
 
 @Controller
@@ -23,12 +23,12 @@ public class ProductController {
 	   @Autowired
 	    private ProductService productService;
 
-	@RequestMapping(method = RequestMethod.GET)
+/*	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		ProductModel productModel = new ProductModel();
 		modelMap.put("products", productModel.findAll());
 		return "product/index";
-	}
+	}*/
 	
 	   @RequestMapping("/products/index")
 	    public String list(HttpServletRequest request) {

@@ -1,33 +1,36 @@
 package com.rachel.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name="product")
 public class Product {
 	
-	@ManyToOne 
-	private Cart cart;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int primaryID;
+	private int id;
 	
 	
-	private String id;
+	private String productCode;
 	private String name;
 	private String photo;
 	private double price;
 
-	public String getId() {
-		return id;
+	public String getproductCode() {
+		return productCode;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setproductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
 	public String getName() {
@@ -57,29 +60,21 @@ public class Product {
 	public Product() {
 	}
 
-	public Product(String id, String name, String photo, double price) {
-		this.id = id;
+	public Product(String productCode, String name, String photo, double price) {
+		this.productCode = productCode;
 		this.name = name;
 		this.photo = photo;
 		this.price = price;
 	}
 
-	public Cart getCart() {
-		return cart;
+	public int getId() {
+		return id;
 	}
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public int getPrimaryID() {
-		return primaryID;
-	}
-
-	public void setPrimaryID(int primaryID) {
-		this.primaryID = primaryID;
-	}
-	
 	
 
 }

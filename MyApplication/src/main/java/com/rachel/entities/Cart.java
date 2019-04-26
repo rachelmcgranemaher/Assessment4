@@ -55,7 +55,7 @@ public class Cart {
     public void add(Item item) {
         boolean found = false;
         for (Item existingItem : items) {
-            if (existingItem.getProduct().getPrimaryID() == item.getProduct().getPrimaryID()) {
+            if (existingItem.getProduct().getId() == item.getProduct().getId()) {
                 found = true;
                 existingItem.setQuantity(existingItem.getQuantity() + item.getQuantity());
             }
@@ -67,7 +67,7 @@ public class Cart {
 
     public void remove(Integer productId) {
         for (Item existingItem : items) {
-            if (existingItem.getProduct().getPrimaryID() == productId) {
+            if (existingItem.getProduct().getId() == productId) {
                 items.remove(existingItem);
             }
         }
@@ -75,7 +75,7 @@ public class Cart {
 
     public Item getByProductId(Integer productId) {
         for (Item item : items) {
-            if (item.getProduct().getPrimaryID() == productId) {
+            if (item.getProduct().getId() == productId) {
                 return item;
             }
         }

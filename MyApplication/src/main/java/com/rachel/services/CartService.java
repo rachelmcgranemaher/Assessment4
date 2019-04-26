@@ -15,7 +15,6 @@ import com.rachel.repository.CartRepository;
 
 
 @Service
-@Transactional
 public class CartService {
 	
 	@Autowired
@@ -28,9 +27,9 @@ public class CartService {
 
 	
 	
-	public CartService(CartRepository cartRepository) {
-		this.cartRepository=cartRepository;
-	}
+//	public CartService(CartRepository cartRepository) {
+//		this.cartRepository=cartRepository;
+//	}
 	
     public void addToCart(Integer cartId, Item item) {
         Optional<Cart> cartOptional = cartRepository.findById(cartId);
@@ -42,7 +41,13 @@ public class CartService {
         }
     }
 
-	public List<Cart> showAllCarts(){	
+	
+	public Cart getCartById(int cartId ) {
+		return cartRepository.findOneById(cartId);
+	
+	}
+    
+    public List<Cart> showAllCarts(){	
 		List<Cart> carts = new ArrayList<Cart>();
 		for(Cart cart:cartRepository.findAll()) {
 			carts.add(cart);

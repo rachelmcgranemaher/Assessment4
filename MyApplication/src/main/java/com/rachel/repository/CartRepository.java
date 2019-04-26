@@ -6,6 +6,6 @@ import com.rachel.entities.Cart;
 
 public interface CartRepository extends CrudRepository <Cart, Integer> {
 	
-	public Cart findByid(int id);
+	public Cart findOneById(int cartId);
 
 }

@@ -35,7 +35,8 @@
         <li><a href="/login">Login</a></li>
     	<li><a href="/register">Register</a></li>
     	<li><a href="/show-users">Users</a></li>
-   		<li><a href="/product">Shop</a></li>
+   		<li><a href="/products">Add Product</a></li>
+   		<li><a href="/shop">Shop</a></li>
    	
    	
   </ul>

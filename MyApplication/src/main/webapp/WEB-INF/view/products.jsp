@@ -32,6 +32,7 @@
     </div>
     <ul class="nav nav-tabs">
         <li class="active"><a href="/welcome">Home</a></li>
+        <li class="active"><a href="/purchase">Home</a></li>
       
     </ul>
     <br>
@@ -55,10 +56,10 @@
             <hr>
             <form class="form-horizontal" method="POST" action="save-product">
                 <div class="form-group">
-                    <label class="control-label col-md-3">product id </label>
+                    <label class="control-label col-md-3">product code </label>
                     <div class="col-md-7">
-                        <input type="text" class="form-control" name="id"
-                               value="${product.id}"/>
+                        <input type="text" class="form-control" name="productCode"
+                               value="${product.productCode}"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -101,6 +102,7 @@
                     <thead>
                     <tr>
                         <th>Id</th>
+                        <th>product code</th>
                         <th>name</th>
                         <th>photo</th>
                         <th>price</th>
@@ -111,14 +113,15 @@
                     <tbody>
                     <c:forEach var="product" items="${products }">
                         <tr>
-                            <td>${product.primaryID}</td>
+                            <td>${product.id}</td>
+                            <td>${product.productCode }</td>
                             <td>${product.name}</td>
                             <td>${product.photo}</td>
                             <td>${product.price}</td>
-                            <td><a href="/products/delete-product/${product.primaryID}"><input type="submit"
+                            <td><a href="/products/delete-product/${product.id}"><input type="submit"
                                                                                                class="btn btn-primary"
                                                                                                value="delete"/></a></td>
-                            <td><a href="/products/edit-product/${product.primaryID}"><input type="submit"
+                            <td><a href="/products/edit-product/${product.id}"><input type="submit"
                                                                                              class="btn btn-primary"
                                                                                              value="edit"/></a></td>
                         </tr>
@@ -135,7 +138,13 @@
             <h3>Update product</h3>
             <hr>
             <form class="form-horizontal" method="POST" action="/products/update-product">
-                <input type="hidden" name="id" value="${product.primaryID}"/>
+                <input type="hidden" name="id" value="${product.id}"/>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Product code</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" name="productCode"
+                               value="${product.productCode }"/>
+                    </div>
                 <div class="form-group">
                     <label class="control-label col-md-3">Product name</label>
                     <div class="col-md-7">
